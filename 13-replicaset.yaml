@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-nginx
+  labels:
+    app: nginx
+    tier: db
+
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      environment: prod
+      tool: eks
+#### these labels are pod related
+  template:
+    metadata:
+      labels:
+        environment: prod
+        tool: eks
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
