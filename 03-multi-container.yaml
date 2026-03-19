@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: multi-container
+  labels:
+    environment: dev
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    command: [ "nginx" , "-g" , "daemon off;"]
+  - name: httpd
+    image: httpd:latest
+    command: ["httpd", "-DFOREGROUND"]

@@ -1,0 +1,10 @@
+apiVersion: eksctl.io
+kind: cluster
+metadata: 
+  name: expense
+  region: us-east-1a
+managedNodeGroups:
+- name: mycluster
+  instance types: t3.medium
+  desired capacity: 3
+  spot: true
